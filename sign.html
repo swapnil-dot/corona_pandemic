@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      function validate() {
+        var hosname = document.getElementById("hsn");
+        var address = document.getElementById("addh");
+        var contact = document.getElementById("cntct");
+        var email = document.getElementById("email");
+        var doctor = document.getElementById("doch");
+        var image = document.getElementById("img");
+        var username = document.getElementById("usn");
+        var pass = document.getElementById("psw");
+        var conpass = document.getElementById("cnpsw");
+
+        if (hosname.value.trim() == "") {
+          alert("Hospital name required");
+          hosname.style.border = "solid 3px red";
+          document.getElementById("lblhos").style.visibility = "visible";
+          return false;
+        } else if (address.value.trim() == "") {
+          alert("Address required");
+          address.style.border = "solid 3px red";
+          document.getElementById("lbladd").style.visibility = "visible";
+          return false;
+        } else if (contact.value.trim() == "") {
+          alert("Input contact info");
+          contact.style.border = "solid 3px red";
+          document.getElementById("lblcon").style.visibility = "visible";
+          return false;
+        } else if (email.value.trim() == "") {
+          alert("Email required");
+          email.style.border = "solid 3px red";
+          document.getElementById("lblema").style.visibility = "visible";
+          return false;
+        } else if (doctor.value.trim() == "") {
+          alert("Doctor's name required");
+          doctor.style.border = "solid 3px red";
+          document.getElementById("lbldoc").style.visibility = "visible";
+          return false;
+        } else if (image.value.trim() == "") {
+          alert("Select Doctor's ID");
+          image.style.border = "solid 3px red";
+          document.getElementById("lblid").style.visiblity = "visible";
+          return false;
+        } else if (username.value.trim() == "") {
+          alert("Username required");
+          username.style.border = "solid 3px red";
+          document.getElementById("lbluse").style.visiblity = "visible";
+          return false;
+        } else if (pass.value.trim() == "") {
+          alert("Setup Password");
+          pass.style.border = "solid 3px red";
+          document.getElementById("lblpsw").style.visibility = "visible";
+          return false;
+        } else if (conpass.value.trim() == "") {
+          alert("Confirm Password");
+          conpass.style.border = "solid 3px red";
+          document.getElementById("lblcpw").style.visibility = "visible";
+          return false;
+        } else {
+          return true;
+        }
+      }
+    </script>
+  </head>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: url("104.jpg");
+      background-size: cover;
+    }
+    * {
+      box-sizing: border-box;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: outset 1px solid;
+      background: #f1f1f1;
+    }
+    img {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color: aqua;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+
+    button {
+      background-color: rgb(7, 52, 78);
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: outset 1px solid black;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+    }
+
+    button:hover {
+      opacity: 1;
+    }
+
+    .cancelbtn,
+    .signupbtn {
+      float: left;
+      width: 50%;
+    }
+
+    .container {
+      padding: 50px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: #0e52e2;
+      padding-top: 50px;
+    }
+
+    .modal-content {
+      background-color: rgb(0, 0, 0, 0.9);
+      margin: 5% auto 15% auto;
+      border-radius: 20px;
+      width: 50%;
+      color: white;
+    }
+
+    hr {
+      border: 1px solid #f1f1f1;
+      margin-bottom: 25px;
+      color: white;
+    }
+
+    h2 {
+      text-align: center;
+      padding: 10% auto;
+      border: 10px solid black;
+      color: white;
+    }
+
+    @media screen and (max-width: 300px) {
+      .cancelbtn,
+      .signupbtn {
+        width: 100%;
+      }
+    }
+  </style>
+  <body>
+    <form
+      name="myform"
+      class="modal-content"
+      action="sign.php"
+      onsubmit="return validate();"
+      method="post"
+    >
+      <div class="container">
+        <h1>Hospital sign up form</h1>
+        <p>Please fill in this form to register hospital.</p>
+        <hr />
+        <label for="hsn"><b>Hospital Name:</b></label>
+        <input
+          type="text"
+          placeholder="name"
+          name="hsn"
+          id="hsn"
+          pattern="[A-Za-z]{5,50}"
+          title="Hospital Name must contain only alphabetic characters."
+        />
+
+        <label
+          id="lblhos"
+          style="color: red; visibility: hidden; font-size: 10px;"
+          >*Hospital name required*</label
+        >
+        <br />
+
+        <label for="addh"><b>Address:</b></label>
+        <input
+          type="text"
+          placeholder="Address"
+          name="addh"
+          id="addh"
+          pattern="[0-9A-Za-z]{5,200}"
+          title="Hospital address must contain only alphanumeric characters. Pattern Hno., Street address,City."
+        />
+
+        <label
+          id="lbladd"
+          style="color: red; visibility: hidden; font-size: 10px;"
+          >*Enter address*</label
+        >
+        <br />
+
+        <label for="cntct"><b>Contact Info:</b></label>
+        <input
+          type="text"
+          placeholder="Enter Contact number"
+          name="cntct"
+          id="cntct"
+          pattern="[0-9]{10}"
+        />
+
+        <label
+          id="lblcon"
+          style="color: red; visibility: hidden; font-size: 10px;"
+          >*Contact details required*</label
+        >
+        <br />
+
+        <label for="email">Email ID:</label>
+        <input
+          type="text"
+          placeholder="Enter Email"
+          name="email"
+          id="email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+          title="Match Email pattern xyz@xyz.com"
+        />
+
+        <label
+          id="lblema"
+          style="color: red; visibility: hidden; font-size: 10px;"
+          >*Email required*</label
+        >
+        <br />
+
+        <label for="doch"><b>Assigned Doctor Name:</b></label>
+        <input
+          type="text"
+          placeholder="Doctor's Name"
+          name="doch"
+          id="doch"
+          pattern="[A-Za-z]{5,50}"
+          title="Doctor's Name must contain only alphabetic characters."
+        />
+
+        <label
+          id="lbldoc"
+          style="color: red; visibility: hidden; font-size: 10px;"
+          >*Enter doctor's name*</label
+        >
+        <br />
+        <label id="lblgen">Gender:</label>
+        <input type="radio" name="gender" value="male" /> Male
+        <input type="radio" name="gender" value="female" /> Female
+        <input type="radio" name="gender" value="other" /> Other
+        <label
+          id="lblgen"
+          style="color: red; visibility: hidden; font-size: 10px;"
+          >*Select gender*</label
+        >
+        <br />
+        <br />
+
+        <label for="img"><b>Valid Doctor's ID:</b></label>
+        <input
+          type="file"
+          id="img"
+          name="img"
+          accept="image/*"
+          size="40"
+          id="img"
+        />
+
+        <label
+          id="lblid"
+          style="color: red; visibility: hidden; font-size: 10px;"
+          >*ID required*</label
+        >
+        <br />
+        <br />
+
+        <label for="usn"><b>Username:</b></label>
+        <input
+          type="text"
+          placeholder="Username"
+          name="usn"
+          id="usn"
+          pattern="[0-9A-Za-z]{3,30}"
+          title="Username must alphanumeric characters, length must be b/w 3-30 characters"
+        />
+
+        <label
+          id="lbluse"
+          style="color: red; visibility: hidden; font-size: 10px;"
+          >*username required*</label
+        >
+        <br />
+
+        <label for="psw"><b>Password</b></label>
+        <input
+          type="password"
+          placeholder="Set up password"
+          name="psw"
+          id="psw"
+          pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+          title="Password (UpperCase, LowerCase, Number/SpecialChar and min 8 Chars)"
+        />
+
+        <label
+          id="lblpsw"
+          style="color: red; visibility: hidden; font-size: 10px;"
+          >*Setup password*</label
+        >
+        <br />
+
+        <label for="cnpsw"><b> Confirm Password</b></label>
+        <input
+          type="password"
+          placeholder="Confirm password"
+          name="cnpsw"
+          id="cnpsw"
+        />
+
+        <label
+          id="lblcpw"
+          style="color: red; visibility: hidden; font-size: 10px;"
+          >*Re-enter password*</label
+        >
+        <br />
+
+        <button type="button" onclick="myfunction()" class="cancelbtn">
+          Cancel
+        </button>
+        <button type="submit" class="signupbtn" name="sign">Sign Up</button>
+
+        <p>
+          By creating an account you agree to our
+          <a href="#" style="color: dodgerblue;">Terms & Privacy</a>.
+        </p>
+      </div>
+    </form>
+  </body>
+</html>

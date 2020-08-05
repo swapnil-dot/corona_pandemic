@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Qr code generator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <p>Input status of the patient and generate a QR code.</p>
+    <br />
+    <p><b>Don't</b> alter the default textbox values.</p>
+    <style>
+      @media print {
+        body * {
+          visibility: hidden;
+        }
+        .qr,
+        .qr * {
+          visibility: visible;
+        }
+      }
+    </style>
+
+    <div class="qrbox">
+      <div class="qr">
+        <img src="love.png" alt="qrimage" />
+      </div>
+
+      <textarea rows="5">
+Name:-             
+SID number:-                     
+Status:-                   
+City:-                         
+      </textarea>
+
+      <button>Generate QR</button>
+      <button onclick="window.print()" class="qr">Print</button>
+    </div>
+  </body>
+</html>
