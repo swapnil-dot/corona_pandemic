@@ -1,3 +1,9 @@
-# corona_pandemic
-Files related to the Fight Against Corona website.
-These files are not to be used for alterations,changements and other activities which may cause breach of license.
+Website made using HTML,CSS,PHP and JavaScript.
+Features:- 
+1-) Login
+2-) Admin Login
+3-) Signup
+4-) Hospital Signup
+5-) Hospital Login
+6-) QR code generation
+
